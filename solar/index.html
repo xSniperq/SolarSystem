@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar System</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="additionalstyles.css" />
   </head>
   <body>
     <div class="space">
       <div class="solar">
         <div class="date">
-          <p class="datep"></p>
+          <input type="date" class="datecalender" />
         </div>
         <div class="sun"></div>
         <div class="mercury"></div>
@@ -26,7 +27,11 @@
         <div class="neptune"></div>
         <div class="pluto"></div>
       </div>
+      <div class="startstop">
+        <button class="startstopbutton">Stop</button>
+      </div>
     </div>
   </body>
   <script src="script.js"></script>
+  <script src="startstop.js"></script>
 </html>

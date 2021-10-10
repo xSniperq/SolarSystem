@@ -18,20 +18,21 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 /* font-family: 'Raleway', sans-serif; */
+
 :root {
-  --mercury-year: translate(-50%, -50%);
-  --venus-year: translate(-50%, -50%);
-  --earth-year: translate(-50%, -50%);
-  --moon: translate(-50%, -50%);
-  --mars-year: translate(-50%, -50%);
-  --ceres-year: translate(-50%, -50%);
-  --asteroids-belt: translate(-50%, -50%);
-  --jupiter-year: translate(-50%, -50%);
-  --saturn-year: translate(-50%, -50%);
-  --saturn-after: rotateZ(-52deg);
-  --uranus-year: translate(-50%, -50%);
-  --neptune-year: translate(-50%, -50%);
-  --pluto-year: translate(-50%, -50%);
+  --day-counter: 0;
+  --mercury-deg: -241.36deg;
+  --venus-deg: -79.6deg;
+  --earth-deg: -195deg;
+  --moon-deg: 0deg;
+  --mars-deg: -60deg;
+  --ceres-deg: -305deg;
+  --belt-deg: 0deg;
+  --jupiter-deg: -225deg;
+  --saturn-deg: -210deg;
+  --uranus-deg: -305deg;
+  --neptune-deg: -260deg;
+  --pluto-deg: -205deg;
 }
 * {
   padding: 0;
@@ -94,7 +95,8 @@ body {
   height: 70px;
   width: 70px;
   z-index: 990;
-  transform: var(--mercury-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--mercury-deg) - var(--day-counter) * (360deg / 88))));
   transition: ease;
 }
 .mercury::before {
@@ -107,7 +109,8 @@ body {
   height: 100px;
   width: 100px;
   z-index: 980;
-  transform: var(--venus-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--venus-deg) - var(--day-counter) * (360deg / 225))));
 }
 .venus::before {
   display: block;
@@ -119,7 +122,8 @@ body {
   height: 145px;
   width: 145px;
   z-index: 970;
-  transform: var(--earth-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--earth-deg) - var(--day-counter) * (360deg / 365.25))));
 }
 .earth::before {
   display: block;
@@ -135,7 +139,8 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: var(--moon);
+  transform: translate(-50%, -50%)
+    rotate(calc(var(--day-counter) * 360deg / 27.32 * (-1)));
   box-shadow: 0 -10px 0 -8px grey;
   border-radius: 100%;
 }
@@ -143,7 +148,8 @@ body {
   height: 190px;
   width: 190px;
   z-index: 960;
-  transform: var(--mars-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--mars-deg) - var(--day-counter) * (360deg / 686.67))));
 }
 .mars::before {
   height: 6px;
@@ -154,7 +160,8 @@ body {
   height: 260px;
   width: 260px;
   z-index: 955;
-  transform: var(--ceres-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--ceres-deg) - var(--day-counter) * (360deg / 1680))));
 }
 .ceres::before {
   display: block;
@@ -168,7 +175,8 @@ body {
   border-color: transparent !important;
   overflow: hidden;
   z-index: 950;
-  transform: var(--asteroids-belt);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--belt-deg) - var(--day-counter) * (360deg / 1800))));
 }
 .asteroids-belt::before {
   content: "";
@@ -574,7 +582,8 @@ body {
   height: 340px;
   width: 340px;
   z-index: 940;
-  transform: var(--jupiter-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--jupiter-deg) - var(--day-counter) * (360deg / 4331.87))));
 }
 .jupiter::before {
   height: 18px;
@@ -596,7 +605,8 @@ body {
   height: 440px;
   width: 440px;
   z-index: 930;
-  transform: var(--saturn-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--saturn-deg) - var(--day-counter) * (360deg / 10756.6))));
 }
 .saturn::before {
   height: 12px;
@@ -610,7 +620,9 @@ body {
   width: 4.676%;
   left: 50%;
   top: 0;
-  transform: var(--saturn-after);
+  transform: rotate(
+    calc(340deg - (var(--saturn-deg) - var(--day-counter) * (360deg / 10756.6)))
+  );
   margin-left: -2.3%;
   margin-top: -1.2%;
   border-radius: 50%;
@@ -620,7 +632,8 @@ body {
   height: 520px;
   width: 520px;
   z-index: 920;
-  transform: var(--uranus-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--uranus-deg) - var(--day-counter) * (360deg / 30681))));
 }
 .uranus::before {
   height: 10px;
@@ -631,7 +644,10 @@ body {
   height: 630px;
   width: 630px;
   z-index: 910;
-  transform: var(--neptune-year);
+  transform: translate(-50%, -50%)
+    rotate(
+      calc((var(--neptune-deg) - var(--day-counter) * (360deg / 60196.85)))
+    );
 }
 .neptune::before {
   height: 10px;
@@ -658,7 +674,8 @@ body {
   height: 780px;
   width: 780px;
   z-index: 900;
-  transform: var(--pluto-year);
+  transform: translate(-50%, -50%)
+    rotate(calc((var(--pluto-deg) - var(--day-counter) * (360deg / 90907.07))));
 }
 .pluto::before {
   height: 3px;

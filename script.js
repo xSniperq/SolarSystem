@@ -17,7 +17,7 @@ let nextday = 86400000;
 let standardday = 1625356800000;
 let timecounter;
 let today = Date.now();
-let intervalspeed = 100;
+let intervalspeed = 30;
 
 function unitodate(a) {
   let date = new Date(a);

@@ -1,5 +1,6 @@
 const startstopbutton = document.querySelector(".startstopbutton");
 let differenttext = 0;
+const sliderspeed = document.querySelector(".range");
 function checkdatecalenter() {
   if (differenttext == 0) {
     startstopbutton.innerHTML = "Start";
@@ -19,8 +20,15 @@ function checkdatecalenter() {
 startstopbutton.onclick = () => {
   checkdatecalenter();
 };
+
 datecalender.onclick = () => {
   startstopbutton.innerHTML = "Start";
   differenttext = 1;
   clearInterval(solarinterval);
+};
+
+sliderspeed.onclick = () => {
+  intervalspeed = sliderspeed.value;
+  clearInterval(solarinterval);
+  solarinterval = setInterval(solarintervalstart, intervalspeed);
 };

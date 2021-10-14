@@ -40,3 +40,13 @@
   border-radius: 30px;
   padding: 5px;
 }
+.range {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 15vh 5vh;
+}
+
+.slider input {
+  background-color: red;
+}

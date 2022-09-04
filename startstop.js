@@ -25,10 +25,12 @@ datecalender.onclick = () => {
   startstopbutton.innerHTML = "Start";
   differenttext = 1;
   clearInterval(solarinterval);
+  r.style.setProperty("--day-counter", `${timecounter}`);
 };
 
 sliderspeed.onclick = () => {
-  intervalspeed = sliderspeed.value;
+  intervalspeed =  60 - sliderspeed.value; // Reversing the slider
   clearInterval(solarinterval);
-  solarinterval = setInterval(solarintervalstart, intervalspeed);
+  startstopbutton.innerHTML = "Start";
+  differenttext = 1;
 };

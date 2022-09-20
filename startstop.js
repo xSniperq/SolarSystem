@@ -13,7 +13,6 @@ function PausedCalenderRefresh() {
     r.style.getPropertyValue("--day-counter")
   ) {
     r.style.setProperty("--day-counter", `${timecounter}`);
-    console.log("Model updated");
   }
 }
 
@@ -22,7 +21,7 @@ function checkdatecalenter() {
     startstopbutton.innerHTML = "Start";
     differenttext += 1;
     clearInterval(solarinterval);
-    pausedcalenderrefresh = setInterval(PausedCalenderRefresh, 1000);
+    pausedcalenderrefresh = setInterval(PausedCalenderRefresh, 100);
   } else {
     clearInterval(pausedcalenderrefresh);
     startstopbutton.innerHTML = "Stop";
@@ -31,6 +30,7 @@ function checkdatecalenter() {
       datecalender.value = unitodate(-6000000000000);
     }
     today = Date.parse(datecalender.value);
+    intervalspeed = 60 - sliderspeed.value; // Reversing the slider
     solarinterval = setInterval(solarintervalstart, intervalspeed);
   }
 }
@@ -40,13 +40,14 @@ startstopbutton.onclick = () => {
 };
 
 datecalender.onclick = () => {
+  // checkdatecalenter();
+  clearInterval(solarinterval);
   startstopbutton.innerHTML = "Start";
   differenttext = 1;
-  clearInterval(solarinterval);
+  pausedcalenderrefresh = setInterval(PausedCalenderRefresh, 100);
 };
 
 sliderspeed.onclick = () => {
-  intervalspeed = 60 - sliderspeed.value; // Reversing the slider
   clearInterval(solarinterval);
   startstopbutton.innerHTML = "Start";
   differenttext = 1;
